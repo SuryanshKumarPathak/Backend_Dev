@@ -1,0 +1,6 @@
+{
+  "name": "Suryansh",
+  "role": "Student",
+  "skills": ["Node.js", "Backend", "Streams"],
+  "active": true
+}
