@@ -1,0 +1,2 @@
+Hello from write stream
+Hello from write stream again
