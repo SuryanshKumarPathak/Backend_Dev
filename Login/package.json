@@ -1,0 +1,16 @@
+{
+  "name": "login",
+  "version": "1.0.0",
+  "main": "Auth.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon Auth.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
