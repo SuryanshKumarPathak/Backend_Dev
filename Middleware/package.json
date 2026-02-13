@@ -1,0 +1,17 @@
+{
+  "name": "middleware",
+  "version": "1.0.0",
+  "main": "middle.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon middlewareIntro.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "nodemon": "^3.1.11"
+  }
+}
