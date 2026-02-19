@@ -1,0 +1,54 @@
+const express = require('express');
+const app = express();
+
+app.use(express.json()); // Parse JSON requests
+
+let users = [
+    { id: 1, name: "Manuradha", email: "manuradha@gmail.com", role: "HR" },
+    { id: 2, name: "Aniket", email: "aniket@gmail.com", role: "Analyst" },
+    { id: 3, name: "Yash", email: "yash@gmail.com", role: "Manager" },
+    { id: 4, name: "Ananya", email: "anany@gmail.com", role: "Developer" },
+    { id: 5, name: "Erica", email: "eri@gmail.com", role: "Designer" }
+];
+
+app.get("/users", (req, res) => {
+    res.json(users);
+});
+
+app.post('/login', (req, res) => {
+    const { email, password } = req.body;
+
+    const user = users.find(u => u.email === email && u.password === password);
+    if (!user) {
+        return res.status(401).json({ error: "Invalid email or password" });
+    }
+
+    // Generate dummy token (random string)
+    const token = Math.random().toString(36).substring(2);
+    activeTokens[token] = user; // Save token with user info
+
+    res.json({ message: "Login successful", token });
+});
+
+const authenticate = (req, res, next) => {
+    const token = req.headers['authorization'];
+
+    if (!token || !activeTokens[token]) {
+        return res.status(401).json({ error: "Unauthorized: Invalid or missing token" });
+    }
+
+    req.user = activeTokens[token]; // Attach user info to request
+    next();
+};
+
+app.get('/dashboard', authenticate, (req, res) => {
+    res.json({ message: `Welcome to the dashboard, ${req.user.email}`, role: req.user.role });
+});
+
+app.get('/profile', authenticate, (req, res) => {
+    res.json({ id: req.user.id, email: req.user.email, role: req.user.role });
+});
+
+app.listen(3000, () => {
+    console.log("Server is running on port 3000");
+});
