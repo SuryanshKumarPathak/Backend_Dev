@@ -31,7 +31,7 @@ const myServer = http.createServer((req, res) => {
   // Log EXACT browser data
   const log = `${new Date().toISOString()} | ${req.url} | ${responseText}\n`;
 
-  fs.appendFile("NodeJs/log.txt", log, (err) => {
+  fs.appendFile("log.txt", log, (err) => {
     if (err) console.error(err);
   });
 });

@@ -1,0 +1,108 @@
+Query operator :
+
+1) comparison operator:
+--------------------------
+
+i) $eq : Equal to
+
+ii) $ne  : Not equal to
+
+iii) $gte : Greater than or equal
+
+iv) $gt : Greater than
+
+v) $lt : Less than
+
+vi) $lte : Less than or equal
+
+vii) $in : Match any value in array
+
+viii) $nin : Match none of value in array
+
+Logical Operator
+
+//AND
+
+db.students.find({
+    $and:[
+        {age:{$gte:21}},
+        {gpa:{$gte:3.5}}
+    ]
+});
+
+
+//OR
+db.students.find({
+    $or:[
+        {age:{$gte:21}},
+        {gpa:{$gte:3.8}}
+    ]
+});
+
+
+//NOT 
+
+db.students.find({
+    $or:[
+        {gpa:{$gte:3.8}}
+    ]
+});
+
+
+MONGODB Index: Improves query performance by creating a structure that allows faster lookup 
+
+//Create a Index 
+db.students.createIndex({email:1}); //1 for ascending 
+
+//Create Compound Index
+db.students.createIndex({name:1,age:-1});
+
+//Drop Index
+db.students.dropIndex("email_1");
+
+//Create Unique Index
+db.students.createIndex({email:1,unique:true});
+
+//View Indexes
+db.students.getIndexes();
+
+
+//Database: Data Storage
+//MONGODB: NO SQL Database
+//CRUD : basic operation
+
+
+Mongoose: Databse Bridge of MongoDB to Nodejs
+
+Architecture 
+
+Application Layer : (Node.js/Express)
+
+
+
+
+Mongoose: ODM : Object Data Modelling
+Features : Schema
+           Validation
+           Clean Code
+        
+MongoDb Connection:
+mongoose.connect("// we have to paste here the url ");
+
+
+Schema: Data Structure + Validation 
+
+Example: const studentsSchema= new mongoose.Schema({
+    name: String,
+    age: Number,
+    email: String,
+})
+
+
+Model 
+Example :  const studentModel = mongoose.Model("Student",studentsSchema);
+
+Analogy :
+Schema: Blueprint
+Model: Machine 
+Collection : Storage

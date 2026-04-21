@@ -4,6 +4,10 @@ let user={
 }
 
 const server = http.createServer((req,res)=>{
+
+
+
+    
     res.writeHead(200,{
         "content-type":"application-json"
     })

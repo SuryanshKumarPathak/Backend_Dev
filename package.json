@@ -1,6 +1,16 @@
 {
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "ejs": "^4.0.1",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "mongoose": "^9.3.2"
+  },
+  "type": "commonjs",
+  "scripts": {
+    "dev": "nodemon D:\\Bridgelabz\\Backend_Dev\\Database\\crud.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }

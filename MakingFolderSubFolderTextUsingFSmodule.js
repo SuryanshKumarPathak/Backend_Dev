@@ -21,13 +21,13 @@ fs.writeFileSync(filePath,"Hello World Again","utf-8")
 // fs.rmdirSync(mainfolder)
 
 //Read Direcotry with files Details
-// fs.readdir(mainfolder,{withFileTypes:true},(err,files)=>{
-//     if(err){
-//         throw err;
-//     }
-//     files.forEach((file)=>{
-//         console.log(file.name); //file or folder name
-//         console.log(file.isFile()); //true or false
-//         console.log(file.isDirectory()); //true or false
-//     }   )
-// }   )
+fs.readdir(mainfolder,{withFileTypes:true},(err,files)=>{
+    if(err){
+        throw err;
+    }
+    files.forEach((file)=>{
+        console.log(file.name); //file or folder name
+        console.log(file.isFile()); //true or false
+        console.log(file.isDirectory()); //true or false
+    }   )
+}   )
